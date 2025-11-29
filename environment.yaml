@@ -1,0 +1,41 @@
+name: DLPytorchCVENV
+channels:
+  - pytorch
+  - nvidia
+  - defaults
+dependencies:
+  # --- Core Python ---
+  - python=3.11
+
+  # --- PyTorch with CUDA ---
+  - pytorch
+  - torchvision
+  - torchaudio
+  - pytorch-cuda=12.1
+
+  # --- Common Data Science ---
+  - numpy
+  - pandas
+  - matplotlib
+  - seaborn
+  - scikit-learn
+  - jupyterlab
+
+  # --- Pip Dependencies ---
+  - pip
+  - pip:
+    # 1. Computer Vision (The request)
+    - opencv-python       # Main OpenCV library
+    
+    # 2. YOLO Engine (Critical)
+    - ultralytics>=8.3.0  # Required to run YOLOv8/v11
+    
+    # 3. Data Augmentation
+    - albumentations      # Industry standard for medical image augmentation
+    
+    # 4. Custom Architecture Helpers
+    - einops              # Makes writing the 'Attention' code much easier
+    - thop                # Calculates FLOPs (to check model speed)
+
+    # tqdm
+    - tqdm

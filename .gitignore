@@ -1,0 +1,29 @@
+# ignore directory
+brisc2025/
+runs/
+yolo_dataset/
+BrainTumor_BiFPN/
+
+# --- 2. Python & System Junk (CRITICAL) ---
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+
+# --- 3. Model Weights ---
+*.pt
+*.pth
+*.onnx
+
+# --- 4. IDE & Environment ---
+.vscode/
+.idea/
+*.swp
+env/
+venv/
+
+# add whitelist the best model pt
+git add -f BrainTumor_BiFPN/run1/weights/best.pt
+
+
+
