@@ -3,6 +3,7 @@ brisc2025/
 runs/
 yolo_dataset/
 BrainTumor_BiFPN/
+fastapi/
 
 # --- 2. Python & System Junk (CRITICAL) ---
 __pycache__/
@@ -21,6 +22,9 @@ __pycache__/
 *.swp
 env/
 venv/
+
+# --- 5. any zip files
+*.zip
 
 # add whitelist the best model pt
 git add -f BrainTumor_BiFPN/run1/weights/best.pt
