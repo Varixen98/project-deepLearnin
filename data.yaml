@@ -1,8 +1,8 @@
-# Point to the NEW folder created by the script
-path: ./yolo_dataset 
+path: ./yolo_dataset_multiclass
 train: images/train
-val: images/test  # Using test as validation for now
+val: images/test
+test: images/test 
 
 # Classes
-nc: 1
-names: ['brain_tumor']
+nc: 3
+names: ['glioma', 'meningioma', 'pituitary']

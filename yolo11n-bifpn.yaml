@@ -2,8 +2,8 @@
 # YOLO11n-BiFPN-CBAM specific configuration
 
 # Parameters
-nc: 1  # number of classes
-scales: # model compound scaling constants, i.e. 'model=yolo11n.yaml'
+nc: 3  # number of classes
+scales: 
   # [depth, width, max_channels]
   n: [0.50, 0.25, 1024] 
 
@@ -31,7 +31,7 @@ head:
   # Layer 6 is 512 channels. Layer 11 (upsampled P5) is 1024 channels.
   # We must align them. Let's target 512 channels.
   - [11, 1, Conv, [512, 1, 1]] # 12 Reduce P5 to 512
-  - [6, 1, Conv, [512, 1, 1]]  # 13 Ensure P4 is 512 (it should be, but safety first)
+  - [6, 1, Conv, [512, 1, 1]]  # 13 Ensure P4 is 512
   
   # Now both inputs are 512. We can add them.
   - [[12, 13], 1, BiFPN_Concat, [1]] # 14

@@ -1,8 +1,8 @@
 # ignore directory
 brisc2025/
 runs/
-yolo_dataset/
-BrainTumor_BiFPN/
+yolo_dataset*/
+BrainTumor_BiFPN*/
 fastapi/
 
 # --- 2. Python & System Junk (CRITICAL) ---
