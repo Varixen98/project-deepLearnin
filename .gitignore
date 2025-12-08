@@ -29,5 +29,5 @@ venv/
 # add whitelist the best model pt
 git add -f BrainTumor_BiFPN/run1/weights/best.pt
 
-
-
+# for now
+*.ipynb
