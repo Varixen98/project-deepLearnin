@@ -1,9 +1,9 @@
 # ignore directory
 brisc2025/
-runs/
-yolo_dataset/
-BrainTumor_BiFPN/
+BrainTumor_*/
 fastapi/
+yolo_dataset_*/
+runs/
 
 # --- 2. Python & System Junk (CRITICAL) ---
 __pycache__/
@@ -29,5 +29,7 @@ venv/
 # add whitelist the best model pt
 git add -f BrainTumor_BiFPN/run1/weights/best.pt
 
-
-
+# for now
+modelv3.ipynb
+yolo11n-bifpn.yaml
+data_multiclass.yaml
