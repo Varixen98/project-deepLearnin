@@ -36,16 +36,13 @@ output_name = session.get_outputs()[0].name
 # preprocessing 
 def preprocess(img_bytes):
     img = Image.open(io.BytesIO(img_bytes)).convert("RGB")
-
     original_size = img.size
-
     img_resized = img.resize((INPUT_SIZE, INPUT_SIZE))
-
+    
     input_data = np.array(img_resized, dtype=np.float32) / 255.0
     input_data = input_data.transpose(2, 0, 1)
-
     input_data = np.expand_dims(input_data, axis=0)
-
+    
     return input_data, original_size
 
 
@@ -100,7 +97,6 @@ def postprocess(output, original_size):
     class_ids = []
 
     # 1. Filter by Confidence
-    # YOLO output format: [x, y, w, h, class1_conf, class2_conf, class3_conf]
     for row in predictions:
         class_scores = row[4:] # The class probabilities
         class_id = np.argmax(class_scores)
@@ -119,7 +115,7 @@ def postprocess(output, original_size):
             class_ids.append(class_id)
 
     if not boxes:
-        return {"diagnosis": "No Tumor", "confidence": 0.0, "details": "Healthy"}
+        return {"diagnosis": "No Tumor", "confidence": 0.0, "details": "Healthy", "all_detections": []}
 
     # 2. Apply NMS (Remove duplicates)
     boxes_np = np.array(boxes)
@@ -143,20 +139,25 @@ def postprocess(output, original_size):
             ]
         })
 
-    # Return the highest confidence result as the primary diagnosis
+    # 4. FINAL SELECTION: Pick the highest confidence only
+    # Since NMS sorts indices by score, the first result is guaranteed to be the best.
     best_result = final_results[0]
+    
     return {
         "diagnosis": best_result["class"],
         "confidence": round(best_result["confidence"], 2),
-        "all_detections": final_results
+        # FIX IS HERE: We wrap best_result in a new list so the array has length 1
+        "all_detections": [best_result] 
     }
 
 # testing connection
 @app.get("/")
 def root():
-    return {"status": "success"
-        ,"message": "Brain Tumor Detection API is running",
-        "code": 200} 
+    return {
+        "status": "success",
+        "message": "Brain Tumor Detection API is running",
+        "code": 200
+    } 
 
 
 @app.post("/predict")
