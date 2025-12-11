@@ -13,7 +13,7 @@ interface Detection {
 interface PredictionResult {
   diagnosis: string;
   confidence: number;
-  all_detections: Detection[];
+  all_detections?: Detection[];
   error?: string;
 }
 
