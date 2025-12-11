@@ -30,6 +30,6 @@ venv/
 git add -f BrainTumor_BiFPN/run1/weights/best.pt
 
 # for now
-*.ipynb
+modelv3.ipynb
 yolo11n-bifpn.yaml
 data_multiclass.yaml
