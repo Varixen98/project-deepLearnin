@@ -111,7 +111,7 @@ export default function Predict() {
 
       <div className="z-10 flex flex-col items-center w-full px-5 py-10 gap-8 min-h-screen">
         <div className="text-center space-y-2 mt-10">
-          <h1 className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-blue-400 to-indigo-600 tracking-tight">
+          <h1 className="text-6xl font-bold bg-clip-text text-transparent bg-linear-to-br from-blue-400 to-indigo-600 tracking-tight">
             AI Diagnosis
           </h1>
           <p className="text-gray-400 text-lg">Upload MRI scans for instant tumor classification.</p>
@@ -195,8 +195,8 @@ export default function Predict() {
                   <div className={`
                     p-6 flex items-center justify-between border-t transition-colors duration-300
                     ${isHealthy 
-                      ? "bg-gradient-to-r from-emerald-950 to-emerald-900 border-emerald-500/30" 
-                      : "bg-gradient-to-r from-red-950 to-red-900 border-red-500/30"
+                      ? "bg-linear-to-r from-emerald-950 to-emerald-900 border-emerald-500/30" 
+                      : "bg-linear-to-r from-red-950 to-red-900 border-red-500/30"
                     }
                   `}>
                     {/* Text Info */}
