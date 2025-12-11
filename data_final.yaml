@@ -1,8 +1,5 @@
-path: ./yolo_dataset_multiclass
+path: D:/Data Adji/Binus/Semester 5/DeepLearning/Project/yolo_dataset_final
 train: images/train
 val: images/test
-test: images/test 
-
-# Classes
 nc: 3
 names: ['glioma', 'meningioma', 'pituitary']
