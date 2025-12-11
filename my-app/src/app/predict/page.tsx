@@ -102,7 +102,7 @@ export default function Predict() {
   };
 
   return (
-    <div className="relative flex flex-col min-h-screen bg-black text-white overflow-y-auto font-archivo">
+    <div className="relative flex flex-col items-center justify-center min-h-screen bg-black text-white overflow-y-auto font-archivo">
       <Navbar />
 
       <div className="fixed inset-0 z-0 pointer-events-none">
