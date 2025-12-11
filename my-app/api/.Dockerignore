@@ -1,0 +1,21 @@
+# Ignore git history (can be huge)
+.git
+.gitignore
+
+# Ignore local python cache
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore local virtual environments (Docker installs its own)
+venv
+env
+.env
+
+# Ignore heavy training weights if you accidentally kept them there
+*.pt
+*.pth
+
+# Ignore system files
+.DS_Store
