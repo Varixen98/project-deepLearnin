@@ -14,7 +14,6 @@ __pycache__/
 # --- 3. Model Weights ---
 *.pt
 *.pth
-*.onnx
 
 # --- 4. IDE & Environment ---
 .vscode/
